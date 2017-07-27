@@ -59,7 +59,7 @@ struct XMLParser
 
   // we should put that outside of the class in the surrounding namespace, but
   // we don't have one ...
-  std::string replace_entities(const std::string& input) const;
+  static std::string replace_entities(const std::string& input);
 
   Node new_node(const std::string& name);
 };

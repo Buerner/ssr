@@ -31,6 +31,7 @@
 #include "apf/stringtools.h"
 #include "apf/math.h" // for linear2dB()
 #include "connection.h"
+#include "xmlparser.h"
 
 using apf::str::A2S;
 
@@ -149,11 +150,11 @@ ssr::NetworkSubscriber::set_source_name(id_t id, const std::string& name)
 {
   (void) id;
   (void) name;
-#if 0
+
   std::string ms = "<update><source id='" + A2S(id) + "' name='" +
-    _xmlparser.replace_entities(name) + "' /></update>";
+    XMLParser::replace_entities(name) + "' /></update>";
   update_all_clients(ms);
-#endif
+
   return true;
 }
 
@@ -162,11 +163,11 @@ ssr::NetworkSubscriber::set_source_properties_file(id_t id, const std::string& n
 {
   (void) id;
   (void) name;
-#if 0
+
   std::string ms = "<update><source id='" + A2S(id) + "' properties_file='" +
-    _xmlparser.replace_entities(name) + "' /></update>";
+    XMLParser::replace_entities(name) + "' /></update>";
   update_all_clients(ms);
-#endif
+
   return true;
 }
 
@@ -204,11 +205,11 @@ ssr::NetworkSubscriber::set_source_port_name(id_t id, const std::string& port_na
 {
   (void) id;
   (void) port_name;
-#if 0
+
   std::string ms = "<update><source id='" + A2S(id) +
-    "' port_name='" + _xmlparser.replace_entities(port_name) + "'/></update>";
+    "' port_name='" + XMLParser::replace_entities(port_name) + "'/></update>";
   update_all_clients(ms);
-#endif
+
   return true;
 }
 
